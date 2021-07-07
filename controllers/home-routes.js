@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Post, Comment } = require("../models");
 
 
-//GET ALL POSTS
+//GET ALL POSTS IN HOME PAGE
 router.get("/", async (req, res) => {
     try {
         const dbPostData = await Post.findAll({
@@ -29,15 +29,22 @@ router.get("/", async (req, res) => {
     }
 });
 
-//GET ONE POST
-router.get("/posts/:id", async (req, res) => {
-    try {
+//GET USER POSTS FROM DASHBOARD
+router.get("/dashboard", async (req, res) => {
+    try{
+        //need to prompt user to sign in or sign up
+        // get data from user posts
+
+        res.render("dashboard", {
+            //variable that contains users posts from database
+        })
 
     } catch (err) {
         console.log(err);
-        res.send(500).json(err);
+        res.status(500).json(err);
     }
 });
+
 
 //LOGIN 
 

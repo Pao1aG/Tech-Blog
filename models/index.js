@@ -2,7 +2,7 @@ const User = require("./User");
 const Post = require("./Post");
 const Comment = require("./Comment");
 
-Post.belongstTo(User, {
+Post.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "CASCADE"
 });
