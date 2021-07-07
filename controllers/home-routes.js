@@ -29,6 +29,8 @@ router.get("/", async (req, res) => {
     }
 });
 
+//SIGN UP/LOGIN
+
 //GET USER POSTS FROM DASHBOARD
 router.get("/dashboard", async (req, res) => {
     try{
@@ -56,6 +58,8 @@ router.get("/login", (req, res) => {
 
     res.render("login");
 });
+
+//LOGOUT 
 
 
 module.exports = router;
