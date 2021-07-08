@@ -3,7 +3,8 @@
         <div class="media">
             <div class="media-content">
                 <!-- Fill in title from database using Post model -->
-                <p class="title is-4">Blog Post Title</p>
+                <!-- Added link to title in order to click and add comment -->
+                <p class="title is-4"><a href="/posts/id">Blog Post Title</a></p>
                 <br>
                     <!-- Fill in username from database using Post and User model (join?)-->
                 <p class="subtitle is-6">Posted by: Username</p>
@@ -22,7 +23,10 @@
         Phasellus nec iaculis mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Phasellus nec iaculis mauris.
         <br>
+        <!--fill this in with Post model data for date -->
         <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
     </div>
 </div>
+
+<script src="/public/js/homepage.js"></script>

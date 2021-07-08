@@ -9,31 +9,33 @@
             </p>
         </div>
         </section>
-        <form class = "box mx-6 my-6">  
+        <form class = "box mx-6 my-6 loginForm">  
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Username">
+                    <input class="input" type="text" placeholder="Username" id="usernameLogin">
                 </div>
             </div>
             
             <div class="field">
                 <label class="label">Password</label>
                 <div class="control">
-                    <input class="input" type="password" placeholder="Password">
+                    <input class="input" type="password" placeholder="Password" id="passwordLogin">
                 </div>
             </div>
     
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="button is-link">Submit</button>
+                    <button class="button is-link">Log In</button>
                 </div>
                 <div class="control">
                     <button class="button is-link is-light">Cancel</button>
                 </div>
             </div>
             <div class="field">
-                <a>Sign Up Instead</a>
+                <a href="/signup">Sign Up Instead</a>
             </div>
         </form>
 </div>
+
+<script src="../public/js/login.js"></script>

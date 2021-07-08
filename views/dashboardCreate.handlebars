@@ -1,16 +1,21 @@
-<div class = "container">
+<!--Need a div with buttons that lead to posts created by current user
+Once buttons are clicked, need to be able to edit the posts-->
+<!-- The button attribute to edit will be data-id="{{post.id}}" which belongs to the id from the Post class-->
+
+<!--TO CREATE NEW POST -->
+<div class = "container createDPost">
     <form class = "box mx-6 my-6">  
         <div class="field">
             <label class="label">Post Title</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Blog Post Title">
+                <input class="input" type="text" placeholder="Blog Post Title" id="cPostTitle">
             </div>
         </div>
     
         <div class="field">
             <label class="label">Content</label>
             <div class="control">
-                <input class="textarea" type="textarea" placeholder="Your Text">
+                <input class="textarea" type="textarea" placeholder="Your Text" id="cPostBody">
             </div>
         </div>
 
@@ -18,14 +23,10 @@
             <div class="control">
                 <button class="button is-link">Create</button>
             </div>
-        <!-- <div class="control">
-            <button class="button is-link is-light">Cancel</button>
-        </div>
-        </div> -->
     </form>
 </div>
 <div class="columns is-centered">
     <div class = "control">
-        <button class ="button is-success is-medium">+ New Post </button>
+        <button class ="button is-success is-medium"> + New Post </button>
     </div>
 </div>

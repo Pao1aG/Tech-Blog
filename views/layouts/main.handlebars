@@ -24,12 +24,15 @@
                 <a class="navbar-item" href="/dashboard">
                     Dashboard
                 </a>
-                <a class="navbar-item" href="/login">
-                    Login
-                </a>
-                <a class="navbar-item" href="/logout">
+                {{#if loggedIn}}
+                <a class="navbar-item" href="/logout" id="logout">
                     Logout
                 </a>
+                {{else}}
+                 <a class="navbar-item" href="/login">
+                    Login
+                </a>
+                {{/if}}
             </div>
         </div>
     </nav>
@@ -39,3 +42,10 @@
     <main>
         {{{body}}}
     </main>
+
+{{#if logged_in}}
+<script src="/public/js/logout.js"></script>
+{{/if}}
+</body>
+
+</html>
