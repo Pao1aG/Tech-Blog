@@ -5,32 +5,32 @@
             Welcome Back!
             </p>
             <p class="subtitle">
-            We've got your cookies 🍪
+            Sign in. We've got your cookies 🍪
             </p>
         </div>
         </section>
         <form class = "box mx-6 my-6 loginForm">  
             <div class="field">
-                <label class="label">Username</label>
+                <label class="label" for="usernameLogin">Username</label>
                 <div class="control">
                     <input class="input" type="text" placeholder="Username" id="usernameLogin">
                 </div>
             </div>
             
             <div class="field">
-                <label class="label">Password</label>
+                <label class="label" for="passwordLogin">Password</label>
                 <div class="control">
                     <input class="input" type="password" placeholder="Password" id="passwordLogin">
                 </div>
             </div>
     
-            <div class="field is-grouped">
+            <div class="field">
                 <div class="control">
                     <button class="button is-link">Log In</button>
                 </div>
-                <div class="control">
+                {{!-- <div class="control">
                     <button class="button is-link is-light">Cancel</button>
-                </div>
+                </div> --}}
             </div>
             <div class="field">
                 <a href="/signup">Sign Up Instead</a>
@@ -38,4 +38,28 @@
         </form>
 </div>
 
-<script src="../public/js/login.js"></script>
+{{!-- <script src="public\js\login.js"></script> --}}
+<script>
+    const loginFormHandler = async (event) => {
+    event.preventDefault();
+
+    const username = document.querySelector("#usernameLogin").value.trim();
+    const password = document.querySelector("#passwordLogin").value.trim();
+
+    if(username && password) {
+        const response = await fetch("/api/users/login", {
+            method: "POST",
+            body: JSON.stringify({ username, password }),
+            headers: ({"Content-Type": "application/json"}),
+        });
+
+        if(response.ok) {
+            document.location.replace("/dashboard");
+        } else {
+            alert(response.statusText);
+        }
+    };
+};
+
+document.querySelector(".loginForm").addEventListener("click", loginFormHandler);
+</script>
