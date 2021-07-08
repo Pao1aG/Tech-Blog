@@ -60,12 +60,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
         //req.session.user_id is to find the logged in user based on the user_id
         const dbUserData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ["password"] },
-            include: [{ model: Post }],
+            // include: [{ model: Post }], THIS MAKES IT BREAK
         });
 
         const user = dbUserData.get({ plain: true });
 
-        res.render("dashboardMain", {
+        res.render("dashboard", {
             ...user,
             logged_in: true
         });
@@ -91,6 +91,14 @@ router.get("/login", (req, res) => {
         return;
     }
     res.render("login");
+});
+
+//LOGOUT
+router.get("/logout", (req, res) => {
+    if(!req.session.logged_in) {
+        res.redirect("/");
+    }
+    res.render("homepage");
 });
 
 
