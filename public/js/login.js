@@ -14,9 +14,9 @@ const loginFormHandler = async (event) => {
         if(response.ok) {
             document.location.replace("/dashboard");
         } else {
-            alert(response.statusText);
+           console.log(response.statusText);
         }
     };
 };
 
-document.querySelector(".loginForm").addEventListener("click", loginFormHandler);
+document.querySelector(".loginForm").addEventListener("submit", loginFormHandler);

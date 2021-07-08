@@ -12,11 +12,11 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace("/dasboard");
+            document.location.replace("/dashboard");
         } else {
-            alert(response.statusText);
+            console.log(response.statusText);
         };
     };
 };
 
-document.querySelector(".signupForm").addEventListener("click", signupFormHandler);
+document.querySelector(".signupForm").addEventListener("submit", signupFormHandler);

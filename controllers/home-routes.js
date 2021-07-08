@@ -78,7 +78,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 //SIGN UP
 router.get("/signup", (req, res) => {
-    res.render("signup");
+    if(!req.session.logged_in){
+        res.render("signup");
+    }
 });
 
 //LOGIN 
