@@ -76,6 +76,18 @@ router.get("/dashboard", withAuth, async (req, res) => {
     }
 });
 
+//GET CREATE POST PAGE
+router.get("/dashboard/create", withAuth, async (req, res) => {
+    try {
+      res.render("create", {
+        logged_in: true
+    });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
 //SIGN UP
 router.get("/signup", (req, res) => {
     if(!req.session.logged_in){

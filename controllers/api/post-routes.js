@@ -3,17 +3,6 @@ const { Post, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //  /api/posts
-//GET CREATE POST PAGE
-router.get("/", withAuth, async (req, res) => {
-  try {
-    res.render("create", {
-      logged_in: true
-  });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 //CREATE NEW POST
 router.post("/", withAuth, async (req, res) => {
