@@ -1,1 +1,12 @@
-[{"title": "Test Seed Title", "post_body": "This is the seed test body"}]
+[
+    {
+        "id":"1", 
+        "title": "Test Seed Title", 
+        "post_body": "This is the seed test body"
+    },
+    {
+        "id":"2",
+        "title": "This is the second seed title",
+        "post_body": "I am trying to write a lot to see what this card is going to look like but who knows"
+    }
+]

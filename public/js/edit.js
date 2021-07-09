@@ -1,5 +1,5 @@
 const editPostHandler = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const postTitle = document.querySelector("#ePostTitle").value.trim();
     const postBody = document.querySelector("#ePostBody").value.trim();
