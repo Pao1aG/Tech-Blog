@@ -1,0 +1,29 @@
+<!--Each container needs an attribute of data-id with corresponding db id # for posts -->
+<div class = "container">
+    <form class = "box mx-6 my-6">  
+        <div class="field">
+            <label class="label">Post Title</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Blog Post Title" id="ePostTitle">
+            </div>
+        </div>
+    
+        <div class="field">
+            <label class="label">Content</label>
+            <div class="control">
+                <input class="textarea" type="textarea" placeholder="Your Text" id="ePostBody">
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" id="updatePost">Update</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-danger" id="deletePost">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/edit.js"></script>

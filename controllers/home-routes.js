@@ -88,6 +88,18 @@ router.get("/dashboard/create", withAuth, async (req, res) => {
     }
   });
 
+//GET EDIT POST BY ID PAGE (NEED TO ADD :ID)
+router.get("/dashboard/edit", withAuth, async (req, res) => {
+    try {
+      res.render("edit", {
+        logged_in: true
+    });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
 //SIGN UP
 router.get("/signup", (req, res) => {
     if(!req.session.logged_in){

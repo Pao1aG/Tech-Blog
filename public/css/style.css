@@ -1,14 +1,19 @@
 html, body {
     height:100%;
-}
-body {
     background-color: rgb(235, 235, 235);
 }
 
-.hidden {
-    display: none;
+.blogCards {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(85, 83, 83);
+    color: white;
 }
 
-.reveal {
-    display: block;
+.blogCards a {
+    color: white;
+}
+
+#newpost {
+    margin-top: 2rem;
 }
