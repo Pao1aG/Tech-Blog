@@ -6,18 +6,22 @@ const withAuth = require("../../utils/auth");
 
 //CREATE NEW POST
 router.post("/", withAuth, async (req, res) => {
+  console.log(req.body);
     try {
         const dbPostData = await Post.create({
             ...req.body,
             user_id: req.session.user_id,
         });
+        console.log(dbPostData);
 
-        if(!dbPostData.post && dbPostData.title) {
-            res.status(400).json({message: "Please enter a title AND post body"});
-            return;
-        } else {
-            res.status(200).json(dbPostData);
-        }
+        res.status(200).json(dbPostData);
+
+        // if(!dbPostData.post && !dbPostData.title) {
+        //     res.status(400).json({message: "Please enter a title AND post body"});
+        //     return;
+        // } else {
+        //     res.status(200).json(dbPostData);
+        // }
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

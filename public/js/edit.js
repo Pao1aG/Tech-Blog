@@ -1,16 +1,16 @@
 const editPostHandler = async (event) => {
     // event.preventDefault();
 
-    const postTitle = document.querySelector("#ePostTitle").value;
-    const postBody = document.querySelector("#ePostBody").value;
+    const title = document.querySelector("#ePostTitle").value;
+    const post_body = document.querySelector("#ePostBody").value;
 
-    if(event.target.hasAttribute("data-id") && postTitle && postBody) {
+    if(event.target.hasAttribute("data-id") && title && post_body) {
 
         const id = event.target.getAttribute("data-id");
 
         const response = await fetch(`/api/posts/${id}`, {
             method: "PUT",
-            body: JSON.stringify({ postTitle, postBody }),
+            body: JSON.stringify({ title, post_body }),
             headers: { 'Content-Type': 'application/json' },
         });
 

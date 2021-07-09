@@ -1,16 +1,15 @@
 const postsCreateHandler = async (event) => {
     event.preventDefault();
 
-    const postTitle = document.querySelector("#cPostTitle").value;
-    const postBody = document.querySelector("#cPostBody").value;
+    const title = document.querySelector("#cPostTitle").value;
+    const post_body = document.querySelector("#cPostBody").value;
 
-    console.log(postTitle);
-    console.log(postBody);
-
-    if(postTitle && postBody) {
+    if(title && post_body) {
+        console.log(title);
+        console.log(post_body);
         const response = await fetch("/api/posts", {
             method: "POST",
-            body: JSON.stringify({ postTitle, postBody }),
+            body: JSON.stringify({ title, post_body }),
             headers: { "Content-Type": "application/json" },
         });
 
@@ -20,7 +19,6 @@ const postsCreateHandler = async (event) => {
             alert('Failed to create post');
         }
     } 
-
 };
 
 document.querySelector(".createDPost").addEventListener("submit", postsCreateHandler);

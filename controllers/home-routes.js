@@ -60,7 +60,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
         //req.session.user_id is to find the logged in user based on the user_id
         const dbUserData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ["password"] },
-            // include: [{ model: Post }], THIS MAKES IT BREAK
         });
 
         const user = dbUserData.get({ plain: true });
@@ -76,9 +75,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
+        console.log(posts);
+
         res.render("dashboard", {
             ...user,
-            ...posts,
+            //removed the spread and it works!
+            posts,
             logged_in: true
         });
 
