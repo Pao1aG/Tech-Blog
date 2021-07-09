@@ -1,6 +1,4 @@
-<!--Need a div with buttons that lead to posts created by current user
-Once buttons are clicked, need to be able to edit the posts-->
-
+<!--this is hardcoded one -->
 <div class="container is-centered userPosts">
     <div class="card blogCards">
     <div class="card-content">
@@ -11,14 +9,16 @@ Once buttons are clicked, need to be able to edit the posts-->
     </div>
     </div>
 
+    {{#each posts as |post| }}
     <div class="card">
     <div class="card-content blogCards">
         <div class="content">
-        <h4><a id="singlePost">Blog Post Name</a></h4>
-        <p class="has-text-right">00/00/00</p>
+        <h4><a id="singlePost">{{post.title}}</a></h4>
+        <p class="has-text-right">{{format_date post.date_posted}}</p>
         </div>
     </div>
     </div>
+    {{/each}}
 
 </div>
 

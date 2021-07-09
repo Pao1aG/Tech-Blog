@@ -65,8 +65,20 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
         const user = dbUserData.get({ plain: true });
 
+        const dbPostData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ["username"],
+                }
+            ]
+        });
+
+        const posts = dbPostData.map((post) => post.get({ plain: true }));
+
         res.render("dashboard", {
             ...user,
+            ...posts,
             logged_in: true
         });
 
