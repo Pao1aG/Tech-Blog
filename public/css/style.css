@@ -27,3 +27,11 @@ html, body {
 .commentPost {
     width: 50%;
 }
+
+.hide {
+    display: none;
+}
+
+.reveal {
+    display: block;
+}

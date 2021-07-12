@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //  /api/posts
@@ -25,12 +25,8 @@ router.post("/", withAuth, async (req, res) => {
 router.put("/:id", withAuth, async (req, res) => {
   console.log(req.body);
     try {
-        const dbPostData = await Post.findByPk({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-            include: [{model: User}]
+        const dbPostData = await Post.findByPk(req.params.id,{
+            //optional arguments here
         });
 
         if(!dbPostData) {
@@ -49,6 +45,7 @@ router.put("/:id", withAuth, async (req, res) => {
 
     } catch (err) {
       res.status(500).json(err);
+      console.log(err);
     }
 });
 
@@ -69,6 +66,21 @@ router.delete("/:id", withAuth, async (req, res) => {
       }
   
       res.status(200).json(dbPostData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  //MAKE COMMENT
+  router.post("/:id", withAuth, async (req, res) => {
+    try {
+      const dbCommentData = await Comment.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+      console.log(dbPostData);
+
+    res.status(200).json(dbCommentData);
     } catch (err) {
       res.status(500).json(err);
     }

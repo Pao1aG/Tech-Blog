@@ -5,11 +5,11 @@ const editPostHandler = async (event) => {
     const post_body = document.querySelector("#ePostBody").value;
 
     // const id = event.target.getAttribute("data-id");
-    // console.log(id);
-
+    
     if(title && post_body) {
-
+        
         const id = event.target.getAttribute("data-id");
+        console.log(id);
 
         const response = await fetch(`/api/posts/${id}`, {
             method: "PUT",
