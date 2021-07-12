@@ -28,6 +28,22 @@ html, body {
     width: 50%;
 }
 
+.commentPost .subtitle {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.commentDiv {
+    border-top: 2px black solid;
+    padding: 20px;
+    background-color: rgb(210, 230, 207);
+}
+
+.commentDiv h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
 .hide {
     display: none;
 }

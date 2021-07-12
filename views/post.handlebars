@@ -9,14 +9,24 @@
                 </div>
             </div>
             <div class="content">
-            {{post_body}}
+                <p>
+                    {{post_body}}
+                </p>
             <br>
                 <div class="has-text-right">
                     <button class="button is-link" id="addComment" data-id="{{id}}"> + Add Comment </button>
                 </div>
             </div>
+            {{#each comments as |comment| }}
+            <div class="commentDiv">
+                <h2> Comment by: {{comment.user.username}} on {{format_date comment.date_posted}}</h2>
+                <p> {{comment.comment_body}} </p>
+            </div>
+            {{/each}}
     </div>
 </div>
+
+
 
 <div class = "container makeComment hide">
     <form class = "box mx-6 my-6 formReveal">  
@@ -29,7 +39,7 @@
 
         <div class="field">
             <div class="control">
-                <button class="button is-link" id="submitComment">Submit</button>
+                <button class="button is-link" id="submitComment" data-id="{{id}}">Submit</button>
             </div>
     </form>
 </div>

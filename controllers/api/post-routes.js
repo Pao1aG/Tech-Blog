@@ -72,15 +72,20 @@ router.delete("/:id", withAuth, async (req, res) => {
   });
 
   //MAKE COMMENT
-  router.post("/:id", withAuth, async (req, res) => {
+  router.post("/comment/:id", withAuth, async (req, res) => {
+    console.log(req.body);
+    console.log(req.session.user_id);
+    console.log(req.body.post_id);
     try {
       const dbCommentData = await Comment.create({
-        ...req.body,
+        comment_body: req.body.comment_body,
+        post_id : req.body.post_id,
         user_id: req.session.user_id,
       });
-      console.log(dbPostData);
+      console.log(dbCommentData);
 
-    res.status(200).json(dbCommentData);
+      res.status(200).json(dbCommentData);
+
     } catch (err) {
       res.status(500).json(err);
     }

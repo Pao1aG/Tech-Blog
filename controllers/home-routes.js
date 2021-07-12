@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //Need to display existing posts and comments at the homepage
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 //GET ALL POSTS IN HOME PAGE
@@ -41,13 +41,28 @@ router.get("/posts/:id", withAuth, async (req, res) => {
             ]
         });
 
+        const dbCommentData = await Comment.findAll({
+            where: {
+                post_id: req.params.id
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ["username"],
+                }
+            ]
+        });
+
         const post = dbPostData.get({ plain: true });
+        //need to map over this one because of findAll, it returns an array
+        const comments = dbCommentData.map((comment) => comment.get({ plain: true }));
 
         if(!req.session.logged_in) {
             res.render("login");
         } else {
             res.render("post", {
                 ...post,
+                comments,
                 logged_in: req.session.logged_in
             });
         }
