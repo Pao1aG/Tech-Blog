@@ -1,0 +1,37 @@
+<div class="container commentPost">
+    <div class="card my-3">
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4">{{title}}</p>
+                    <br>
+                    <p class="subtitle is-6">Posted by: {{user.username}} on {{format_date date_posted}}</p>
+                </div>
+            </div>
+            <div class="content">
+            {{post_body}}
+            <br>
+                <div class="has-text-right">
+                    <button class="button is-link" id="addComment" data-id="{{id}}"> + Add Comment </button>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class = "container makeComment">
+    <form class = "box mx-6 my-6 formReveal">  
+        <div class="field">
+            <label class="label" for="commentBody">Comment</label>
+            <div class="control">
+                <input class="textarea" type="textarea" placeholder="Your Comment" id="commentBody">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-link" id="submitComment">Submit</button>
+            </div>
+    </form>
+</div>
+
+<script src="/js/comment.js"></script>

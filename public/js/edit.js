@@ -4,6 +4,9 @@ const editPostHandler = async (event) => {
     const title = document.querySelector("#ePostTitle").value;
     const post_body = document.querySelector("#ePostBody").value;
 
+    // const id = event.target.getAttribute("data-id");
+    // console.log(id);
+
     if(title && post_body) {
 
         const id = event.target.getAttribute("data-id");
@@ -15,7 +18,7 @@ const editPostHandler = async (event) => {
         });
 
         if(response.ok) {
-            console.log("I am updating this post")
+            console.log("I am updating this post");
             document.location.replace("/dashboard");
         } else {
             alert('Failed to update post');
@@ -47,5 +50,5 @@ const deletePostHandler = async (event) => {
     }
 };
 
-document.querySelector("#updatePost").addEventListener("submit", editPostHandler);
+document.querySelector("#updatePost").addEventListener("click", editPostHandler);
 document.querySelector("#deletePost").addEventListener("click", deletePostHandler);
