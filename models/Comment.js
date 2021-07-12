@@ -15,13 +15,18 @@ Comment.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        post_id: {
+        date_posted: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "post",
+                model: "user",
                 key: "id",
             }
-        }
+        },
     },
     {
         sequelize,

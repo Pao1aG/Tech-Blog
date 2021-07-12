@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
 });
 
 //GET POST BY ID (IF AUTHENTICATED, CAN ADD A COMMENT LATER)
-router.get("/posts/:id", async (req, res) => {
+router.get("/posts/:id", withAuth, async (req, res) => {
     try {
         const dbPostData = await Post.findByPk(req.params.id, {
             include: [
@@ -43,10 +43,15 @@ router.get("/posts/:id", async (req, res) => {
 
         const post = dbPostData.get({ plain: true });
 
-        res.render("post", {
-            ...post,
-            logged_in: req.session.logged_in
-        });
+        if(!req.session.logged_in) {
+            res.render("login");
+        } else {
+            res.render("post", {
+                ...post,
+                logged_in: req.session.logged_in
+            });
+        }
+
 
     } catch (err) {
         console.log(err);
