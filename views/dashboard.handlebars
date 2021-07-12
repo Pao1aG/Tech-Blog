@@ -1,26 +1,18 @@
-<!--this is hardcoded one -->
+<h2 class="welcome">Welcome back to your Dashboard, {{username}}!</h2>
+
+{{#each posts as |post| }}
 <div class="container is-centered userPosts">
-    {{!-- <div class="card blogCards">
-    <div class="card-content">
-        <div class="content">
-        <h4><a href="/dashboard/edit" id="singlePost">Blog Post Name</a></h4>
-        <p class="has-text-right">00/00/00</p>
+    <div class="card blogCards">
+        <div class="card-content">
+            <div class="content">
+                <h4 id="title"><a data-id="{{post.id}}">{{post.title}}</a></h4><!--href="/dashboard/edit"*/-->
+                <p class="has-text-center" id="postBody">{{post.post_body}}</p>
+                <p class="has-text-right">{{format_date post.date_posted}}</p>
+            </div>
         </div>
     </div>
-    </div> --}}
-
-    {{#each posts as |post| }}
-    <div class="card">
-    <div class="card-content blogCards">
-        <div class="content">
-        <h4><a id="singlePost">{{post.title}}</a></h4>
-        <p class="has-text-right">{{format_date post.date_posted}}</p>
-        </div>
-    </div>
-    </div>
-    {{/each}}
-
 </div>
+{{/each}}
 
 <div class="columns is-centered">
     <div class = "control">

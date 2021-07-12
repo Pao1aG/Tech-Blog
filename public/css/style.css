@@ -8,6 +8,7 @@ html, body {
     margin-bottom: 1rem;
     background-color: rgb(85, 83, 83);
     color: white;
+    /* width: 50%; */
 }
 
 .blogCards a {
@@ -16,4 +17,10 @@ html, body {
 
 #newpost {
     margin-top: 2rem;
+}
+
+.welcome {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
 }

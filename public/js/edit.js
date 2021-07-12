@@ -1,5 +1,5 @@
 const editPostHandler = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     const title = document.querySelector("#ePostTitle").value;
     const post_body = document.querySelector("#ePostBody").value;
@@ -45,4 +45,4 @@ const deletePostHandler = async (event) => {
 };
 
 document.querySelector("#updatePost").addEventListener("submit", editPostHandler);
-document.querySelector("#deletePost").addEventListener("submit", deletePostHandler);
+document.querySelector("#deletePost").addEventListener("click", deletePostHandler);

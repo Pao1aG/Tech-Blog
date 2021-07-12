@@ -15,13 +15,6 @@ router.post("/", withAuth, async (req, res) => {
         console.log(dbPostData);
 
         res.status(200).json(dbPostData);
-
-        // if(!dbPostData.post && !dbPostData.title) {
-        //     res.status(400).json({message: "Please enter a title AND post body"});
-        //     return;
-        // } else {
-        //     res.status(200).json(dbPostData);
-        // }
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -44,16 +37,14 @@ router.put("/:id", withAuth, async (req, res) => {
             return;
         };
 
-        if(dbPostData.id == req.params.id) {
-            Post.update(req.body, {
-                where: {
-                    id: req.params.id,
-                    user_id: req.session.user_id,
-                },
-            });
-        };
+        const updatedPost = await Post.update(req.body, {
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
 
-        res.status(200).json(dbPostData);
+        res.status(200).json(updatedPost);
 
     } catch (err) {
       res.status(500).json(err);

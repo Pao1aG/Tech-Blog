@@ -106,10 +106,22 @@ router.get("/dashboard/create", withAuth, async (req, res) => {
   });
 
 //GET EDIT POST BY ID PAGE (NEED TO ADD :ID)
-router.get("/dashboard/edit", withAuth, async (req, res) => {
+router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
     try {
-      res.render("edit", {
-        logged_in: true
+        const dbPostData = await Post.findByPk(req.params.id, {
+            include: [ 
+                {
+                    model: User,
+                    attributes: ["username"]
+                },
+            ],
+        });
+
+        const post = dbPostData.get({ plain: true });
+
+        res.render("edit", {
+            ...post,
+            logged_in: true
     });
     } catch (err) {
       console.log(err);
