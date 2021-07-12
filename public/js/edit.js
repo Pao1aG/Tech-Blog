@@ -4,7 +4,7 @@ const editPostHandler = async (event) => {
     const title = document.querySelector("#ePostTitle").value;
     const post_body = document.querySelector("#ePostBody").value;
 
-    if(event.target.hasAttribute("data-id") && title && post_body) {
+    if(title && post_body) {
 
         const id = event.target.getAttribute("data-id");
 
@@ -15,6 +15,7 @@ const editPostHandler = async (event) => {
         });
 
         if(response.ok) {
+            console.log("I am updating this post")
             document.location.replace("/dashboard");
         } else {
             alert('Failed to update post');
@@ -25,12 +26,14 @@ const editPostHandler = async (event) => {
 };
 
 const deletePostHandler = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     if(event.target.hasAttribute("data-id")) {
         const id = event.target.getAttribute("data-id");
 
-        const response = await fetch(`api/posts/${id}`, {
+        console.log(id);
+
+        const response = await fetch(`/api/posts/${id}`, {
             method: "DELETE",
         });
 

@@ -23,6 +23,7 @@ router.post("/", withAuth, async (req, res) => {
 
 //UPDATE POST
 router.put("/:id", withAuth, async (req, res) => {
+  console.log(req.body);
     try {
         const dbPostData = await Post.findByPk({
             where: {
