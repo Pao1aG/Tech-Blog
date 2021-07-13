@@ -4,7 +4,6 @@
             <div class="media">
                 <div class="media-content">
                     <p class="title is-4">{{title}}</p>
-                    <br>
                     <p class="subtitle is-6">Posted by: {{user.username}} on {{format_date date_posted}}</p>
                 </div>
             </div>
@@ -17,16 +16,17 @@
                     <button class="button is-link" id="addComment" data-id="{{id}}"> + Add Comment </button>
                 </div>
             </div>
+
             {{#each comments as |comment| }}
             <div class="commentDiv">
-                <h2> Comment by: {{comment.user.username}} on {{format_date comment.date_posted}}</h2>
                 <p> {{comment.comment_body}} </p>
+                <div class="commentUser">
+                    <h2> Comment by: {{comment.user.username}} on {{format_date comment.date_posted}}</h2>
+                </div>
             </div>
             {{/each}}
     </div>
 </div>
-
-
 
 <div class = "container makeComment hide">
     <form class = "box mx-6 my-6 formReveal">  
@@ -43,5 +43,7 @@
             </div>
     </form>
 </div>
+
+
 
 <script src="/js/comment.js"></script>

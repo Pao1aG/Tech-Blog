@@ -1,25 +1,19 @@
-{{#each posts as |post| }}
-<div class="card my-3">
-    <div class="card-content">
-        <div class="media">
-            <div class="media-content">
-                <!-- Fill in title from database using Post model -->
-                <!-- Added link to title in order to click and add comment -->
-                <p class="title is-4"><a href="/posts/{{post.id}}"/a> {{post.title}}</p>
-                <br>
-                    <!-- Fill in username from database using Post and User model (join?)-->
-                <p class="subtitle is-6">Posted by: {{post.user.username}} on {{format_date post.date_posted}}</p>
+
+<div class="container is-centered">
+    {{#each posts as |post| }}
+    <div class="card my-3 dashboardCard">
+        <div class="card-content">
+            <div class="content">
+            <!-- Fill in content from database using Post model post_body-->
+                <p class="title is-4"><a href="/posts/{{post.id}}"> {{post.title}}</a></p>
+                <p class="homepageBody">{{post.post_body}}</p>
+                <div class="userPostDashboard">
+                    <p class="subtitle is-5">Posted by: {{post.user.username}} on {{format_date post.date_posted}}</p>
+                </div>
             </div>
         </div>
-        <div class="content">
-        <!-- Fill in content from database using Post model post_body-->
-        {{post.post_body}}
-        <br>
-        <!--fill this in with Post model data for date -->
-        {{!-- <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> --}}
-        </div>
     </div>
+    {{/each}}
 </div>
-{{/each}}
 
 <script src="/js/homepage.js"></script>

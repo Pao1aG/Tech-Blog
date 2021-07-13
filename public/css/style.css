@@ -1,6 +1,51 @@
 html, body {
     height:100%;
     background-color: rgb(235, 235, 235);
+    scroll-behavior: smooth;
+}
+
+.homepageBody {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.commentPost, .makeComment {
+    width: 70%;
+}
+
+.commentPost .media-content, .content .title{
+    background-color:rgb(73, 116, 88);
+    padding: 10px;
+}
+
+.commentPost .title, 
+.commentPost .subtitle, 
+.content .title a {
+    color: white;
+}
+
+.commentPost .subtitle {
+    font-weight: bold;
+    font-style: italic;
+    text-align: right;
+}
+
+.commentDiv {
+    border-top: 2px black solid;
+    padding: 20px;
+}
+
+.commentDiv h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.userPostDashboard, .commentUser {
+    text-align: right;
+}
+
+.userPosts {
+    width: 60%;
 }
 
 .blogCards {
@@ -22,26 +67,6 @@ html, body {
     font-size: 30px;
     text-align: center;
     margin-bottom: 40px;
-}
-
-.commentPost {
-    width: 50%;
-}
-
-.commentPost .subtitle {
-    font-weight: bold;
-    font-style: italic;
-}
-
-.commentDiv {
-    border-top: 2px black solid;
-    padding: 20px;
-    background-color: rgb(210, 230, 207);
-}
-
-.commentDiv h2 {
-    font-weight: bold;
-    font-style: italic;
 }
 
 .hide {
