@@ -69,7 +69,7 @@ If you would like to test the functionality of the blog with pre-generated users
 node seeds/seed
 ```
 
-For the live application, visit [Heroku]().
+For the live application, visit [Heroku](https://floating-brushlands-26906.herokuapp.com/signup).
 
 ## Images
 
