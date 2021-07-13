@@ -102,7 +102,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
         res.render("dashboard", {
             ...user,
-            //removed the spread and it works!
             posts,
             logged_in: true
         });

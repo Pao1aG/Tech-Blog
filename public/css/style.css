@@ -14,7 +14,7 @@ html, body {
 }
 
 .commentPost .media-content, .content .title{
-    background-color:rgb(73, 116, 88);
+    background-color:rgb(42, 72, 117);
     padding: 10px;
 }
 
@@ -51,8 +51,11 @@ html, body {
 .blogCards {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: rgb(85, 83, 83);
-    color: white;
+}
+
+.blogCards h4 {
+    background-color:rgb(42, 72, 117);
+    padding: 5px;
 }
 
 .blogCards a {
