@@ -3,6 +3,9 @@ const commentRevealHandler = async (event) => {
 
     const makeComment = document.querySelector(".makeComment");
     makeComment.setAttribute("class", "reveal");
+
+    //scroll to bottom of page
+    window.scrollTo(0, document.body.scrollHeight);
 };
 
 const makeCommentHandler = async (event) => {
@@ -20,8 +23,6 @@ const makeCommentHandler = async (event) => {
     });
 
     if(response.ok) {
-        const commentDiv = document.querySelector(".commentDiv");
-        commentDiv.setAttribute("class", "reveal");
         document.location.replace(`/posts/${post_id}`);
     } else {
         alert("Failed to make a comment");

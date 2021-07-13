@@ -73,7 +73,10 @@ For the live application, visit [Heroku](https://floating-brushlands-26906.herok
 
 ## Images
 
-![Screenshot of Tech Blog Website]()
+![Sign In of Tech Blog Website](public/images/techblog_signin.png)
+![Home of Tech Blog](public/images/techblog_home.png)
+![Dashboard of Tech Blog Website](public/images/techblog_dashboard.png)
+![New Post in Dashboard](public/images/techblog_newpost.png)
 
 ## Credits
 
